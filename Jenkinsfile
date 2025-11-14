@@ -6,7 +6,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo "Building Docker Image..."
-                bat 'docker build -t kubdemoapp2:v1 .'
+                bat 'docker build -t numbergame:v1 .'
             }
         }
 
@@ -20,20 +20,20 @@ pipeline {
         stage('Push Docker Image to Docker Hub') {
             steps {
                 echo "Pushing Docker Image to Docker Hub..."
-                bat 'docker tag kubdemoapp2:v1 varimallamansa1/sample2:kubeimage2'
-                bat 'docker push varimallamansa1/sample2:kubeimage2'
+                bat 'docker tag numbergame:v1 varimallamansa1/numbergame:latest'
+                bat 'docker push varimallamansa1/numbergame:latest'
             }
         }
 
         stage('Deploy to Kubernetes') {
-        steps {
-        echo "Deploying to Kubernetes..."
-        withEnv(['KUBECONFIG=C:\\Users\\MANASA\\.kube\\config']) {
-            bat 'kubectl apply -f deployment.yaml --validate=false'
-            bat 'kubectl apply -f service.yaml'
+            steps {
+                echo "Deploying to Kubernetes..."
+                withEnv(['KUBECONFIG=C:\\Users\\MANASA\\.kube\\config']) {
+                    bat 'kubectl apply -f deployment.yaml --validate=false'
+                    bat 'kubectl apply -f service.yaml'
+                }
+            }
         }
-    }
-}
 
     }
 
