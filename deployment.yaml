@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: numbergame
-        image: manasa/numbergame:latest
+        image: varimallamansa1/numbergame:latest
         ports:
         - containerPort: 5000
