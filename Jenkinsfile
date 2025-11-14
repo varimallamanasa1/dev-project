@@ -6,7 +6,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo "Building Docker Image..."
-                bat 'docker build -t numbergame:v1 .'
+                bat 'docker build -t numbergame2:v1 .'
             }
         }
 
@@ -20,8 +20,8 @@ pipeline {
         stage('Push Docker Image to Docker Hub') {
             steps {
                 echo "Pushing Docker Image to Docker Hub..."
-                bat 'docker tag numbergame:v1 varimallamansa1/numbergame:latest'
-                bat 'docker push varimallamansa1/numbergame:latest'
+                bat 'docker tag numbergame:v1 varimallamansa1/numbergame2:latest'
+                bat 'docker push varimallamansa1/numbergame2:latest'
             }
         }
 
