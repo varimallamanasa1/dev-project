@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: numbergame-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: numbergame
+  template:
+    metadata:
+      labels:
+        app: numbergame
+    spec:
+      containers:
+      - name: numbergame
+        image: manasa/numbergame:latest
+        ports:
+        - containerPort: 5000
