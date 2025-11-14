@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: numbergame2-service
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: numbergame2
   ports:
