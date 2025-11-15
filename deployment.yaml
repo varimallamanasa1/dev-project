@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: numbergame2-deployment
+  name: numbergame3-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: numbergame2
+      app: numbergame3
   template:
     metadata:
       labels:
-        app: numbergame2
+        app: numbergame3
     spec:
       containers:
-      - name: numbergame2
-        image: varimallamansa1/numbergame2:latest
-        ports:
-        - containerPort: 5000
+        - name: numbergame3
+          image: varimallamansa1/numbergame3:latest
+          ports:
+            - containerPort: 5000
